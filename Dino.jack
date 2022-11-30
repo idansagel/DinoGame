@@ -123,7 +123,6 @@ class Dino {
 		do Memory.poke(memAddress+(32*i)+bottom_left, 0);
 		let i = i +1;
 		}
-		do Screen.drawRectangle(0, 238, 511, 240);
 		return;
 	}
 
@@ -139,17 +138,17 @@ class Dino {
 	method void position() {
 		if (falling)
 		{
-			let height = height-10;
+			let height = height-25;
 		}
 		if (rising)
 		{
-			let height = height+20;
+			let height = height+25;
 		}
 		if ((falling) | (rising)) {
 			do hide();
 			let memAddress=	16384+7367-(32*height);
 			do draw();
-			if (height = 80)
+			if (height = 100)
 			{
 				let rising = false;
 				let falling = true;
