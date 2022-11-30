@@ -1,0 +1,56 @@
+function DinoGame.new 0
+push constant 1
+call Memory.alloc 1
+pop pointer 0
+call Screen.clearScreen 0
+pop temp 0
+push constant 0
+push constant 238
+push constant 511
+push constant 240
+call Screen.drawRectangle 4
+pop temp 0
+call Dino.new 0
+pop this 0
+push pointer 0
+return
+function DinoGame.newInstance 0
+call DinoGame.new 0
+pop static 0
+push constant 0
+return
+function DinoGame.getInstance 0
+push static 0
+return
+function DinoGame.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+function DinoGame.run 0
+push argument 0
+pop pointer 0
+push this 0
+call Dino.show 1
+pop temp 0
+push constant 1000
+call Sys.wait 1
+pop temp 0
+push this 0
+call Dino.jump 1
+pop temp 0
+label WHILE_EXP0
+push constant 0
+not
+not
+if-goto WHILE_END0
+push constant 1000
+call Sys.wait 1
+pop temp 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return

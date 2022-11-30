@@ -1,0 +1,54 @@
+/**Implements a graphical dinosaur. **/
+class Dino {
+    field int x, y; // screen location of the dinosaur top left corner
+	field int memAddress;
+
+    /** Constructs a new dinosaur with a given location and size. **/
+    constructor Dino new() {
+		let memAddress = 16384+7363;
+        return this;
+    }
+
+	method void show() {
+		do Screen.setColor(true);
+        do draw();
+		return;
+	}
+
+    /** Draws the dinosaur on the screen **/
+	method void draw() {
+	do Memory.poke(memAddress+0, 32256);
+
+	do Memory.poke(memAddress-30, 32256);
+    do Memory.poke(memAddress+30, 32256);
+    do Memory.poke(memAddress-30, 32256);
+
+	do Memory.poke(memAddress+32, -1280);
+	do Memory.poke(memAddress+64, -256);
+	do Memory.poke(memAddress+96, -256);
+	do Memory.poke(memAddress+128, 3585);
+	do Memory.poke(memAddress+160, 32257);
+	do Memory.poke(memAddress+192, 3841);
+	do Memory.poke(memAddress+224, 3971);
+	do Memory.poke(memAddress+256, 16327);
+	do Memory.poke(memAddress+288, 12287);
+	do Memory.poke(memAddress+320, 4095);
+	do Memory.poke(memAddress+352, 2046);
+	do Memory.poke(memAddress+384, 1020);
+	do Memory.poke(memAddress+416, 824);
+	do Memory.poke(memAddress+448, 528);
+	do Memory.poke(memAddress+480, 1584);
+	do Memory.poke(memAddress+512, 1584);
+	do Memory.poke(memAddress+544, 1584);
+	do Memory.poke(memAddress+576, 1584);
+
+	return;
+    }
+
+	method void jump() {
+		let memAddress=	16384+7363-(16*20);
+		do draw();
+		return;
+	}
+
+}

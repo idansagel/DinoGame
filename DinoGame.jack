@@ -8,9 +8,12 @@ class DinoGame {
 
     /** Construct a of Dino game */
     constructor DinoGame new() {
-        do screen.clearScreen();
-        let dino = Dino.new()
+    	do Screen.clearScreen();
+        do Screen.drawRectangle(0, 238, 511, 240);
+        let dino = Dino.new();
+        //do dino.show();
         return this;
+    }
 
     /** Creates an instance of Dino game, and stores it. */
     function void newInstance() {
@@ -29,3 +32,15 @@ class DinoGame {
         do Memory.deAlloc(this);
         return;
     }
+
+    method void run() {
+        do dino.show();
+        do Sys.wait(1000);
+        do dino.jump();
+        while (true)
+        {
+        do Sys.wait(1000);
+        }
+        return;
+    }
+}
