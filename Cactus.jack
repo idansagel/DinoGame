@@ -1,0 +1,137 @@
+class Cactus {
+	field int memAddress;
+    field int above, left, bottom_left;
+    //field int buffer;
+
+    constructor Cactus new() {
+		let memAddress = 16384+7231;
+        let above = -480;
+		let left = -480-1;
+		let bottom_left = -1;
+        return this;
+    }
+
+    	method void show() {
+		do Screen.setColor(true);
+        do draw();
+		return;
+	}
+
+    /** Draws the cactus on the screen **/
+	method void draw() {
+
+		// top right
+        do Memory.poke(memAddress+0+above, 0);
+        do Memory.poke(memAddress+32+above, 0);
+        do Memory.poke(memAddress+64+above, 0);
+        do Memory.poke(memAddress+96+above, 1);
+        do Memory.poke(memAddress+128+above, 3);
+        do Memory.poke(memAddress+160+above, 3);
+        do Memory.poke(memAddress+192+above, 3075);
+        do Memory.poke(memAddress+224+above, 7683);
+        do Memory.poke(memAddress+256+above, 16131);
+        do Memory.poke(memAddress+288+above, 16131);
+        do Memory.poke(memAddress+320+above, 16131);
+        do Memory.poke(memAddress+352+above, 16131);
+        do Memory.poke(memAddress+384+above, 16131);
+        do Memory.poke(memAddress+416+above, 16131);
+        do Memory.poke(memAddress+448+above, 16131);
+        do Memory.poke(memAddress+480+above, 16131);
+		// top left
+		do Memory.poke(memAddress+0+left, 0);
+        do Memory.poke(memAddress+32+left, 0);
+        do Memory.poke(memAddress+64+left, -16384);
+        do Memory.poke(memAddress+96+left, -16384);
+        do Memory.poke(memAddress+128+left, -4096);
+        do Memory.poke(memAddress+160+left, -4096);
+        do Memory.poke(memAddress+192+left, -4096);
+        do Memory.poke(memAddress+224+left, -4096);
+        do Memory.poke(memAddress+256+left, -4096);
+        do Memory.poke(memAddress+288+left, -4096);
+        do Memory.poke(memAddress+320+left, -4084);
+        do Memory.poke(memAddress+352+left, -4066);
+        do Memory.poke(memAddress+384+left, -4033);
+        do Memory.poke(memAddress+416+left, -4033);
+        do Memory.poke(memAddress+448+left, -4033);
+        do Memory.poke(memAddress+480+left, -4033);
+		// bottom right
+        do Memory.poke(memAddress+0, 16383);
+        do Memory.poke(memAddress+32, 8191);
+        do Memory.poke(memAddress+64, 4095);
+        do Memory.poke(memAddress+96, 2047);
+        do Memory.poke(memAddress+128, 1023);
+        do Memory.poke(memAddress+160, 255);
+        do Memory.poke(memAddress+192, 3);
+        do Memory.poke(memAddress+224, 3);
+        do Memory.poke(memAddress+256, 3);
+        do Memory.poke(memAddress+288, 3);
+        do Memory.poke(memAddress+320, 3);
+        do Memory.poke(memAddress+352, 3);
+        do Memory.poke(memAddress+384, 3);
+        do Memory.poke(memAddress+416, 3);
+        do Memory.poke(memAddress+448, 3);
+        do Memory.poke(memAddress+480, 3);
+		// bottom left
+		do Memory.poke(memAddress+0+bottom_left, -4033);
+        do Memory.poke(memAddress+32+bottom_left, -4033);
+        do Memory.poke(memAddress+64+bottom_left, -4033);
+        do Memory.poke(memAddress+96+bottom_left, -3969);
+        do Memory.poke(memAddress+128+bottom_left, -1793);
+        do Memory.poke(memAddress+160+bottom_left, -2);
+        do Memory.poke(memAddress+192+bottom_left, -4);
+        do Memory.poke(memAddress+224+bottom_left, -8);
+        do Memory.poke(memAddress+256+bottom_left, -32);
+        do Memory.poke(memAddress+288+bottom_left, -64);
+        do Memory.poke(memAddress+320+bottom_left, -4096);
+        do Memory.poke(memAddress+352+bottom_left, -4096);
+        do Memory.poke(memAddress+384+bottom_left, -4096);
+        do Memory.poke(memAddress+416+bottom_left, -4096);
+        do Memory.poke(memAddress+448+bottom_left, -4096);
+        do Memory.poke(memAddress+480+bottom_left, -4096);
+    return;
+    }
+
+    /** Hides the cactus. */
+	method void hide() {
+		var int i;
+		let i = 0;
+		while ( i < 16 ) 
+		{ 	
+		do Memory.poke(memAddress+(32*i)+above, 0);
+		let i = i +1;
+		}
+		let i = 0;
+		while ( i < 16 ) 
+		{ 	
+		do Memory.poke(memAddress+(32*i)+left, 0);
+		let i = i +1;
+		}
+		let i = 0;
+		while ( i < 16 ) 
+		{ 	
+		do Memory.poke(memAddress+(32*i), 0);
+		let i = i +1;
+		}
+		let i = 0;
+		while ( i < 16 ) 
+		{ 	
+		do Memory.poke(memAddress+(32*i)+bottom_left, 0);
+		let i = i +1;
+		}
+		do Screen.drawRectangle(0, 238, 511, 240);
+		return;
+	    }
+
+    method void moving_along() {
+            //if (buffer = 0)
+            //{
+            do hide();
+            let memAddress = memAddress - 1;
+            do draw();
+            //let buffer = 1100;
+            //}
+            //let buffer = buffer - 1;
+            return;
+        }
+
+    }

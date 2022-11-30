@@ -1,5 +1,5 @@
 function DinoGame.new 0
-push constant 1
+push constant 2
 call Memory.alloc 1
 pop pointer 0
 call Screen.clearScreen 0
@@ -12,6 +12,8 @@ call Screen.drawRectangle 4
 pop temp 0
 call Dino.new 0
 pop this 0
+call Cactus.new 0
+pop this 1
 push pointer 0
 return
 function DinoGame.newInstance 0
@@ -36,18 +38,32 @@ pop pointer 0
 push this 0
 call Dino.show 1
 pop temp 0
-push constant 1000
-call Sys.wait 1
-pop temp 0
-push this 0
-call Dino.jump 1
+push this 1
+call Cactus.show 1
 pop temp 0
 label WHILE_EXP0
 push constant 0
 not
 not
 if-goto WHILE_END0
-push constant 1000
+call Keyboard.keyPressed 0
+push constant 0
+eq
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
+call Dino.jump 1
+pop temp 0
+label IF_FALSE0
+push this 0
+call Dino.position 1
+pop temp 0
+push this 1
+call Cactus.moving_along 1
+pop temp 0
+push constant 100
 call Sys.wait 1
 pop temp 0
 goto WHILE_EXP0
