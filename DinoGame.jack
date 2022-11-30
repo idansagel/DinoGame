@@ -1,0 +1,12 @@
+/**
+ * Represents a Google out-of Internet game.
+ */
+class DinoGame {
+
+	static DinoGame instance;
+	field Dino dino; // the dinosaur
+
+    constructor DinoGame new() {
+        do screen.clearScreen();
+        let dino = Dino.new()
+        return this;
