@@ -1,11 +1,19 @@
 /**Implements a graphical dinosaur. **/
 class Dino {
-    field int x, y; // screen location of the dinosaur top left corner
 	field int memAddress;
+	field int above, left, bottom_left;
+	field int height;
+	field boolean rising, falling;
 
     /** Constructs a new dinosaur with a given location and size. **/
     constructor Dino new() {
 		let memAddress = 16384+7363;
+		let above = -480;
+		let left = -480-1;
+		let bottom_left = -1;
+		let rising = false;
+		let  falling = false;
+		let height  = 0;
         return this;
     }
 
@@ -17,38 +25,142 @@ class Dino {
 
     /** Draws the dinosaur on the screen **/
 	method void draw() {
-	do Memory.poke(memAddress+0, 32256);
-
-	do Memory.poke(memAddress-30, 32256);
-    do Memory.poke(memAddress+30, 32256);
-    do Memory.poke(memAddress-30, 32256);
-
-	do Memory.poke(memAddress+32, -1280);
-	do Memory.poke(memAddress+64, -256);
-	do Memory.poke(memAddress+96, -256);
-	do Memory.poke(memAddress+128, 3585);
-	do Memory.poke(memAddress+160, 32257);
-	do Memory.poke(memAddress+192, 3841);
-	do Memory.poke(memAddress+224, 3971);
-	do Memory.poke(memAddress+256, 16327);
-	do Memory.poke(memAddress+288, 12287);
-	do Memory.poke(memAddress+320, 4095);
-	do Memory.poke(memAddress+352, 2046);
-	do Memory.poke(memAddress+384, 1020);
-	do Memory.poke(memAddress+416, 824);
-	do Memory.poke(memAddress+448, 528);
-	do Memory.poke(memAddress+480, 1584);
-	do Memory.poke(memAddress+512, 1584);
-	do Memory.poke(memAddress+544, 1584);
-	do Memory.poke(memAddress+576, 1584);
-
-	return;
+		// head top right
+		do Memory.poke(memAddress+0+above, 16380);
+		do Memory.poke(memAddress+32+above, 16380);
+		do Memory.poke(memAddress+64+above, -49);
+		do Memory.poke(memAddress+96+above, -49);
+		do Memory.poke(memAddress+128+above, -1);
+		do Memory.poke(memAddress+160+above, -1);
+		do Memory.poke(memAddress+192+above, -1);
+		do Memory.poke(memAddress+224+above, -1);
+		do Memory.poke(memAddress+256+above, 252);
+		do Memory.poke(memAddress+288+above, 252);
+		do Memory.poke(memAddress+320+above, 8188);
+		do Memory.poke(memAddress+352+above, 8188);
+		do Memory.poke(memAddress+384+above, 255);
+		do Memory.poke(memAddress+416+above, 127);
+		do Memory.poke(memAddress+448+above, 63);
+		do Memory.poke(memAddress+480+above, 31);
+		// tail top left
+		do Memory.poke(memAddress+0+left, 0);
+		do Memory.poke(memAddress+32+left, 0);
+		do Memory.poke(memAddress+64+left, 0);
+		do Memory.poke(memAddress+96+left, 0);
+		do Memory.poke(memAddress+128+left, 0);
+		do Memory.poke(memAddress+160+left, 0);
+		do Memory.poke(memAddress+192+left, 0);
+		do Memory.poke(memAddress+224+left, 0);
+		do Memory.poke(memAddress+256+left, 3);
+		do Memory.poke(memAddress+288+left, 3);
+		do Memory.poke(memAddress+320+left, 3);
+		do Memory.poke(memAddress+352+left, 3);
+		do Memory.poke(memAddress+384+left, 3);
+		do Memory.poke(memAddress+416+left, 15);
+		do Memory.poke(memAddress+448+left, 63);
+		do Memory.poke(memAddress+480+left, -1);
+		// hand bottom right
+		do Memory.poke(memAddress+0, 4095);
+		do Memory.poke(memAddress+32, 4095);
+		do Memory.poke(memAddress+64, 3327);
+		do Memory.poke(memAddress+96, 3327);
+		do Memory.poke(memAddress+128, 255);
+		do Memory.poke(memAddress+160, 255);
+		do Memory.poke(memAddress+192, 255);
+		do Memory.poke(memAddress+224, 255);
+		do Memory.poke(memAddress+256, 127);
+		do Memory.poke(memAddress+288, 63);
+		do Memory.poke(memAddress+320, 31);
+		do Memory.poke(memAddress+352, 31);
+		do Memory.poke(memAddress+384, 28);
+		do Memory.poke(memAddress+416, 28);
+		do Memory.poke(memAddress+448, 124);
+		do Memory.poke(memAddress+480, 124);
+		// leg bottom left
+		do Memory.poke(memAddress+0+bottom_left, 31);
+		do Memory.poke(memAddress+32+bottom_left, 63);
+		do Memory.poke(memAddress+64+bottom_left, -1);
+		do Memory.poke(memAddress+96+bottom_left, -1);
+		do Memory.poke(memAddress+128+bottom_left, -1);
+		do Memory.poke(memAddress+160+bottom_left, -1);
+		do Memory.poke(memAddress+192+bottom_left, -2);
+		do Memory.poke(memAddress+224+bottom_left, -4);
+		do Memory.poke(memAddress+256+bottom_left, -8);
+		do Memory.poke(memAddress+288+bottom_left, -16);
+		do Memory.poke(memAddress+320+bottom_left, 8160);
+		do Memory.poke(memAddress+352+bottom_left, 4032);
+		do Memory.poke(memAddress+384+bottom_left, 896);
+		do Memory.poke(memAddress+416+bottom_left, 896);
+		do Memory.poke(memAddress+448+bottom_left, 3968);
+		do Memory.poke(memAddress+480+bottom_left, 3968);
+		return;
     }
 
-	method void jump() {
-		let memAddress=	16384+7363-(16*20);
-		do draw();
+    /** Hides the dino. */
+	method void hide() {
+		var int i;
+		let i = 0;
+		while ( i < 16 ) 
+		{ 	
+		do Memory.poke(memAddress+(32*i)+above, 0);
+		let i = i +1;
+		}
+		let i = 0;
+		while ( i < 16 ) 
+		{ 	
+		do Memory.poke(memAddress+(32*i)+left, 0);
+		let i = i +1;
+		}
+		let i = 0;
+		while ( i < 16 ) 
+		{ 	
+		do Memory.poke(memAddress+(32*i), 0);
+		let i = i +1;
+		}
+		let i = 0;
+		while ( i < 16 ) 
+		{ 	
+		do Memory.poke(memAddress+(32*i)+bottom_left, 0);
+		let i = i +1;
+		}
+		do Screen.drawRectangle(0, 238, 511, 240);
 		return;
+	}
+
+	method void jump() {
+		if ((~(rising)) & (~(falling)))
+		{
+			let rising = true;
+		} 
+		return;
+		}
+
+    /** continues dino's jump if in process, othwerise stays stationary . **/
+	method void position() {
+		if (falling)
+		{
+			let height = height-1;
+		}
+		if (rising)
+		{
+			let height = height+1;
+		}
+		if ((falling) | (rising)) {
+			do hide();
+			let memAddress=	16384+7363-(32*height);
+			do draw();
+			if (height = 80)
+			{
+				let rising = false;
+				let falling = true;
+			}
+			if (height = 0)
+			{
+				let falling = false;
+			}
+		}
+	return;
+
 	}
 
 }

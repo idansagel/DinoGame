@@ -5,13 +5,14 @@ class DinoGame {
 
 	static DinoGame instance;
 	field Dino dino; // the dinosaur
+    field Cactus cactus;
 
     /** Construct a of Dino game */
     constructor DinoGame new() {
     	do Screen.clearScreen();
         do Screen.drawRectangle(0, 238, 511, 240);
         let dino = Dino.new();
-        //do dino.show();
+        let cactus = Cactus.new();
         return this;
     }
 
@@ -33,13 +34,19 @@ class DinoGame {
         return;
     }
 
+    /** loops over a 'turn' in the game until player loses */
     method void run() {
         do dino.show();
-        do Sys.wait(1000);
-        do dino.jump();
+        do cactus.show();
         while (true)
         {
-        do Sys.wait(1000);
+            if (~(Keyboard.keyPressed()=0))
+            {
+                do dino.jump();
+            }
+            do dino.position();
+            do cactus.moving_along();
+            Sys.wait(10);
         }
         return;
     }
