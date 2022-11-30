@@ -1,0 +1,12 @@
+class Main {
+
+    /** Initializes a Dino game and starts running it. */
+    function void main() {
+        var DinoGame game;
+        do DinoGame.newInstance();
+        let game = DinoGame.getInstance();
+        do game.run();
+        do game.dispose();
+        return;
+    }
+}

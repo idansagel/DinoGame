@@ -6,7 +6,26 @@ class DinoGame {
 	static DinoGame instance;
 	field Dino dino; // the dinosaur
 
+    /** Construct a of Dino game */
     constructor DinoGame new() {
         do screen.clearScreen();
         let dino = Dino.new()
         return this;
+
+    /** Creates an instance of Dino game, and stores it. */
+    function void newInstance() {
+        let instance = DinoGame.new();
+        return;
+    }
+    
+    /** Returns the single instance of this Pong game. */
+    function DinoGame getInstance() {
+        return instance;
+    }
+
+    /** Deallocates the object's memory. */
+    method void dispose() {
+        /** todo add **/
+        do Memory.deAlloc(this);
+        return;
+    }
