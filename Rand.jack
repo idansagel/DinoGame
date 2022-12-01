@@ -1,0 +1,25 @@
+// Takes the memory address of one of the pixels on the dinosaur
+class Random {
+
+    static int i;
+
+    // loc_1 is the memory address of a certain dino pixel
+    function int rand(loc_1) {
+        var Array modulo; // array [2, 3, 5, 7]
+        static int sum;
+        
+        let modulo = Array.new(4);
+        let modulo[0] = 2; let modulo[1] = 3;
+        let modulo[2] = 5, let modulo[3] = 7;
+
+        let i = 0;
+        let sum = Math.abs(loc_1);
+        while (sum > 500) {
+            let sum = (sum / modulo[i])
+        }
+        if (i = 3) {
+            let i = 0;
+        }
+        return sum[0];
+    }
+}
