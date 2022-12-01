@@ -1,3 +1,4 @@
+
 class Cactus {
 	field int memAddress;
     field int above, left, bottom_left;
@@ -122,7 +123,7 @@ class Cactus {
 		return;
 	    }
 
-    method void moving_along(int ) {
+    method void moving_along() {
             //if (buffer = 0)
             //{
             do hide();
