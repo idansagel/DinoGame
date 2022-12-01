@@ -122,7 +122,7 @@ class Cactus {
 		return;
 	    }
 
-    method void moving_along() {
+    method void moving_along(int ) {
             //if (buffer = 0)
             //{
             do hide();

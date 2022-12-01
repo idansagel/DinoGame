@@ -22,7 +22,7 @@ class DinoGame {
         return;
     }
     
-    /** Returns the single instance of this Pong game. */
+    /** Returns the single instance of this DinoGame game. */
     function DinoGame getInstance() {
         return instance;
     }
