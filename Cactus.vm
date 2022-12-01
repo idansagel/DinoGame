@@ -1,0 +1,668 @@
+function Cactus.new 0
+push constant 4
+call Memory.alloc 1
+pop pointer 0
+push constant 16384
+push constant 7231
+add
+pop this 0
+push constant 480
+neg
+pop this 1
+push constant 480
+neg
+push constant 1
+sub
+pop this 2
+push constant 1
+neg
+pop this 3
+push pointer 0
+return
+function Cactus.show 0
+push argument 0
+pop pointer 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push pointer 0
+call Cactus.draw 1
+pop temp 0
+push constant 0
+return
+function Cactus.draw 0
+push argument 0
+pop pointer 0
+push this 0
+push constant 0
+add
+push this 1
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 32
+add
+push this 1
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 64
+add
+push this 1
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 96
+add
+push this 1
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 128
+add
+push this 1
+add
+push constant 3
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 160
+add
+push this 1
+add
+push constant 3
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 192
+add
+push this 1
+add
+push constant 3075
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 224
+add
+push this 1
+add
+push constant 7683
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 256
+add
+push this 1
+add
+push constant 16131
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 288
+add
+push this 1
+add
+push constant 16131
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 320
+add
+push this 1
+add
+push constant 16131
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 352
+add
+push this 1
+add
+push constant 16131
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 384
+add
+push this 1
+add
+push constant 16131
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 416
+add
+push this 1
+add
+push constant 16131
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 448
+add
+push this 1
+add
+push constant 16131
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 480
+add
+push this 1
+add
+push constant 16131
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 0
+add
+push this 2
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 32
+add
+push this 2
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 64
+add
+push this 2
+add
+push constant 16384
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 96
+add
+push this 2
+add
+push constant 16384
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 128
+add
+push this 2
+add
+push constant 4096
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 160
+add
+push this 2
+add
+push constant 4096
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 192
+add
+push this 2
+add
+push constant 4096
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 224
+add
+push this 2
+add
+push constant 4096
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 256
+add
+push this 2
+add
+push constant 4096
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 288
+add
+push this 2
+add
+push constant 4096
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 320
+add
+push this 2
+add
+push constant 4084
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 352
+add
+push this 2
+add
+push constant 4066
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 384
+add
+push this 2
+add
+push constant 4033
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 416
+add
+push this 2
+add
+push constant 4033
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 448
+add
+push this 2
+add
+push constant 4033
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 480
+add
+push this 2
+add
+push constant 4033
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 0
+add
+push constant 16383
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 32
+add
+push constant 8191
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 64
+add
+push constant 4095
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 96
+add
+push constant 2047
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 128
+add
+push constant 1023
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 160
+add
+push constant 255
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 192
+add
+push constant 3
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 224
+add
+push constant 3
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 256
+add
+push constant 3
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 288
+add
+push constant 3
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 320
+add
+push constant 3
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 352
+add
+push constant 3
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 384
+add
+push constant 3
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 416
+add
+push constant 3
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 448
+add
+push constant 3
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 480
+add
+push constant 3
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 0
+add
+push this 3
+add
+push constant 4033
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 32
+add
+push this 3
+add
+push constant 4033
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 64
+add
+push this 3
+add
+push constant 4033
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 96
+add
+push this 3
+add
+push constant 3969
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 128
+add
+push this 3
+add
+push constant 1793
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 160
+add
+push this 3
+add
+push constant 2
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 192
+add
+push this 3
+add
+push constant 4
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 224
+add
+push this 3
+add
+push constant 8
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 256
+add
+push this 3
+add
+push constant 32
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 288
+add
+push this 3
+add
+push constant 64
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 320
+add
+push this 3
+add
+push constant 4096
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 352
+add
+push this 3
+add
+push constant 4096
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 384
+add
+push this 3
+add
+push constant 4096
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 416
+add
+push this 3
+add
+push constant 4096
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 448
+add
+push this 3
+add
+push constant 4096
+neg
+call Memory.poke 2
+pop temp 0
+push this 0
+push constant 480
+add
+push this 3
+add
+push constant 4096
+neg
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function Cactus.hide 1
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+label WHILE_EXP0
+push local 0
+push constant 16
+lt
+not
+if-goto WHILE_END0
+push this 0
+push constant 32
+push local 0
+call Math.multiply 2
+add
+push this 1
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+pop local 0
+label WHILE_EXP1
+push local 0
+push constant 16
+lt
+not
+if-goto WHILE_END1
+push this 0
+push constant 32
+push local 0
+call Math.multiply 2
+add
+push this 2
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP1
+label WHILE_END1
+push constant 0
+pop local 0
+label WHILE_EXP2
+push local 0
+push constant 16
+lt
+not
+if-goto WHILE_END2
+push this 0
+push constant 32
+push local 0
+call Math.multiply 2
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP2
+label WHILE_END2
+push constant 0
+pop local 0
+label WHILE_EXP3
+push local 0
+push constant 16
+lt
+not
+if-goto WHILE_END3
+push this 0
+push constant 32
+push local 0
+call Math.multiply 2
+add
+push this 3
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP3
+label WHILE_END3
+push constant 0
+push constant 238
+push constant 511
+push constant 240
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+return
+function Cactus.moving_along 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Cactus.hide 1
+pop temp 0
+push this 0
+push constant 1
+sub
+pop this 0
+push pointer 0
+call Cactus.draw 1
+pop temp 0
+push constant 0
+return
